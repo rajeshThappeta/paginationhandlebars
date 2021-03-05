@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+
+<body>
+    {{!-- {{{paginateHelper pagination limit="7"}}} --}}
+    <div class="container">
+        <table class="table table-bordered table-striped text-center">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Age</th>
+            </thead>
+            {{#each pagination.emps}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{employee_name}}</td>
+                <td>{{employee_salary}}</td>
+                <td>{{employee_age}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+
+        <div class="float-end">
+            {{#paginate pagination }}
+
+            <li class="btn btn-info btn-sm " {{#if active}}class="active" {{/if}}><a
+                    style="text-decoration: none;color:white" href="?p={{n}}">{{n}}</a></li>
+            {{/paginate}}
+
+        </div>
+    </div>
+</body>
+
+</html>
